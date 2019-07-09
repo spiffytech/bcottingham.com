@@ -1,1 +1,226 @@
-Hello, world!
+<html>
+  <head>
+    <!--<meta http-equiv="refresh" content="5" >-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
+    <link href="screen.css" rel="stylesheet" type="text/css" />
+    <link href="print.css" rel="stylesheet" type="text/css" media="print" />
+
+    <title>Brian Cottingham's resume</title>
+  </head>
+  <body>
+
+    <header id="page-header">
+      <section>
+          <h1 id="name">Brian Cottingham</h1>
+          <div id="contact-info">brian@bcottingham.com | (919)-259-8970 | github.com/spiffytech</div>
+    </section>
+      <section id="summary">
+        <h2>Summary</h2>
+        <div>I architect and implement reliable systems to grow products and solve business problems, through devops and software development.</div>
+      </section>
+    </header>
+
+    <main>
+
+      <section id="jobs">
+        <h2>Jobs</h2>
+        <div id="content"></div>
+      </section>
+
+      <div id="extra">
+        <section id="hobbies">
+          <h2>Hobbies</h2>
+          <ul>
+            <li>President of the NCSU <b>Linux Users Group</b></li>
+            <li>Hobbyist <b>TypeScript, Node.js, React, Vue, Clojure, F#, Python, Go, and Docker</b> experience, including building:</li>
+            <ul>
+              <li>PoC of a personal budgeting app (React, Vue, CouchDB, GraphQL, TypeScript)</li>
+              <!--<liMVP of a multi-tenancy, static site CMS <b>(Node.js, S3)</b></li>-->
+              <li>Web-based music software for private music collections in the cloud <b>(TypeScript, React, Node.js)</b></li>
+              <li>Mobile-friendly web interface for the NewsBlur RSS reader <b>(Python, PHP, MySQL)</b></li>
+              <li>Web regression testing tool that displays differences between revisions of web pages <b>(Python)</b></li>
+              <!--
+              <li>Music composition algorithm (context-free grammars, multi-track) <b>(Python)</b></li>
+              <li>IRC chatbot <b>(Python)</b></li>
+              -->
+            </ul>
+            <!--<li>Music (ukulele, guitar, Harpejji)</li>-->
+          </ul>
+        </section>
+
+        <section id="education">
+          <h2>Education</h2>
+          <section class="job">
+            <h3>
+              <span class="company-name">NC State University</span>
+            </h3>
+            <div>
+              <span class="job-role">Bachelor of Computer Science&nbsp</span>
+              <span class="job-dates">(Dec. 2011)</span>
+              <p>Classes using Java, C, MongoDB</p>
+            </div>
+        </section>
+      </div>
+    </main>
+
+    <script id="job-template" type="x-tmpl-mustache">
+      {{#jobs}}
+        <section class="job">
+          <h3>
+            <span class="company-name">{{company}}</span>
+          </h3>
+          <div>
+            <span class="job-role">{{title}}</span>
+          </div>
+          <div>
+            <span class="job-dates">({{dates}}) {{#part-time}}part-time{{/part-time}}</span>
+          </div>
+	  <ul class="job-details">
+	    {{#details}}
+	      <li>{{detail}}</li>
+	      <ul>
+	        {{#more-details}}
+	          <li>{{detail}}</li>
+                {{/more-details}}
+              </ul>
+            {{/details}}
+          </ul>
+	  {{#keywords}}
+	    <div class="technologies">{{keywords}}</div>
+	  {{/keywords}}
+        </section>
+      {{/jobs}}
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+
+    <script type="text/javascript">
+      var jobs_data = { "jobs": [
+        {
+            "company": "AdvisorEngine",
+            "location": "Raleigh, NC",
+            "title": "Senior DevOps Engineer",
+            "dates": "May 2018 - June 2019",
+            "details": [
+            {"detail": "Planned and implemented disaster recovery on a short deadline, beating RPO by 92% (Node.js, AWS)"},
+            {"detail": "Migrated production Kubernetes infrastructure from Tectonic to AWS EKS, standardizing our platform and reducing maintenance overhead"},
+            {"detail": "Implemented a chatbot to streamline software deploys and eliminate bottlenecks, massively speeding iteration for the business and software development (Node.js)"},
+            {"detail": "Created dashboards to provide insight on business processes to multiple teams, replacing unreliable manual processes (Node.js, Vue.js)"},
+            ],
+            "keywords": {"keywords": "Kubernetes, AWS (EC2, EKS, Route53, ECR, RDS), Node.js, Vue.js, TypeScript, ElasticSearch, Jenkins"}
+        },
+        {
+            "company": "Dude Solutions",
+            "location": "Cary, NC",
+            "title": "Senior DevOps Engineer",
+            "dates": "October 2017 - May 2018",
+            "details": [
+                {"detail": "Implemented metrics monitoring across 200 servers, highlighting performance concerns that impacted customers (ELK, InfluxFB, Grafana)"},
+                {"detail": "Implemented log aggregation across multiple products and services, revealing many customer-impacting bugs for the first time (ELK)"},
+                {"detail": "Implemented Ansible automation for server provisioning, enabling much more rapid delivery of DevOps projects (Ansible)"},
+                {"detail": "Mentored junior team members in software development"},
+            ],
+            "keywords": {"keywords": "Ansible, Docker Swarm, Go, Grafana, ElasticSearch / ELK, InfluxDB"}
+        },
+        {
+            "company": "Align Technology",
+            "location": "Morrisville, NC",
+            "title": "DevOps Engineer",
+            "dates": "January 2017 - September 2017",
+            "details": [
+                {"detail": "AWS cost management: wrote a tool to clean up unused EBS volumes, saves $1,000+/mo (AWS Lambda)"},
+                {"detail": "AWS cost management: performed analysis of cost savings opportunities, identifying unused resources"},
+                {"detail": "Created a health monitoring dashboard for Align's software services (Node.js, Web)"},
+                {"detail": "Managed infrastructure automation for complete software environments (AWS CloudFormation)"},
+                {"detail": "Excelled at documenting ticket steps and resolutions, undocumented procedures"},
+                {"detail": "Created a chatbot (hubot)"}
+            ],
+            "keywords": {"keywords": "AWS (CloudFormation, EC2, S3, DynamoDB, Lambda), Chef, Node.js, Vuex, TypeScript, Docker"}
+        },
+        {
+            "company": "Cisco",
+            "location": "Morrisville, NC",
+            "title": "Software Engineer / Contractor",
+            "dates": "May 2016 - December 2016",
+            "details": [
+                {"detail": "Data visualization of OpenShift/Kubernetes cloud infrastructure with D3 and React"},
+                {"detail": "Streamed real-time OpenShift events to the browser"},
+                {"detail": "Queried multiple API endpoints, robustly handled endpoint unavailability"},
+                {"detail": "Continuous Integration and Continuous Deployment via Jenkins and OpenShift"}
+            ],
+            "keywords": {"keywords": "Node.js, React, D3, OpenShift, Kubernetes, TypeScript, Redis, MobX"}
+        },
+        {
+          "company": "Youth Digital",
+          "location": "Chapel Hill, NC",
+          "title": "Developer",
+          "dates": "August 2015 - December 2015",
+          "details": [
+                {
+                    "detail": "Order of magnitude improvement in reliability and development speed of product installers vs old system",
+                    "more-details": [
+                        {"detail": "Cross-platform installers all built from a single codebase and build step"},
+                        {"detail": "Used off-the-shelf installer tools and Node.js scripts to maximize features and minimize custom code"}
+                    ]
+                },
+                {"detail": "Developed, bundled, and deployed a Blender plugin at scale and received few/no support tickets (Python)"},
+                {
+                    "detail": "Improved web app resilience by reducing single points of failure",
+                    "more-details": [
+                        {"detail": "Migrated user content storage to from local disk to AWS S3"},
+                        {"detail": "DB replication via AWS Aurora"},
+                        {"detail": "Moved from single web server to multiple servers behind a load balancer"}
+                    ]
+                }
+          ],
+          "keywords": {"keywords": "PHP, Node.js, Python, AWS (S3, EC2, RDS Aurora), Linux, Windows, OS X, Blender, InstallBuilder"}
+        },
+        {
+          "company": "On-Site",
+          "location": "Remote",
+          "title": "DevOps Engineer",
+          "dates": "October 2013 - August 2015",
+          "details": [
+                {"detail": "Automated stand-up and configuration of application servers (multiple apps & code environments)"},
+                {"detail": "Dramatic improvement of server reliability, reduction of error alerts"},
+                {"detail": "Server stand-up time reduced from 1+ days to minutes"}
+          ],
+          "keywords": {"keywords": "Chef, Ubuntu Server, Xen, Tomcat, Apache, Passenger, Python/Fabric"}
+        },
+        {
+          "company": "Contactology",
+          "location": "Durham, NC / Remote",
+          "title": "Developer",
+          "dates": "January 2012 - August 2013",
+          "details": [
+            {"detail": "Contributed to a 300 kLOC web app requiring high reliability and performance over complex data and features"},
+            {"detail": "Front-end and back-end web development"},
+            {"detail": "Executed rolling code deployments"},
+          ],
+          "keywords": {"keywords": "PHP, JavaScript, MySQL, Ubuntu Server, Gearman, AWS (EC2)"}
+        },
+        {
+          "company": "Various (part-time / internship)",
+          "title": "Software Developer, Systems Administrator",
+          "dates": "2005 - 2011",
+          "details": [
+            /*
+            {"detail": "Created reporting tools that revealed $1000s in billing oversights and revealed many bugs (PHP)"},
+          	{"detail": "Developed a stress-testing application to support multiple customer-facing APIs"},
+          	{"detail": "Developed a store locator that was up to 50 times faster than its unusably-slow predecessor"},
+            {"detail": "Migrated 200+ client businesses (2000+ accounts) to a new email provider"},
+            {"detail": "Migrated 200+ customer websites from Urchin to Google Analytics"},
+            {"detail": "Reduced server count by 75% through service consolidation and OS virtualization"},
+            */
+          ],
+          "keywords": {"keywords": "Linux, VMware Server, PHP, Python, C#, Django, PostgreSQL"}
+        },
+      ]};
+      var job_template = jQuery("#job-template").html();
+      Mustache.parse(job_template);
+      var rendered = Mustache.render(job_template, jobs_data);
+      jQuery("#jobs #content").html(rendered)
+    </script>
+  </body>
+</html>
