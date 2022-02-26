@@ -72,8 +72,6 @@
           </h3>
           <div>
             <span class="job-role">{{title}}</span>
-          </div>
-          <div>
             <span class="job-dates">({{dates}}) {{#part-time}}part-time{{/part-time}}</span>
           </div>
 	  <ul class="job-details">
@@ -222,22 +220,22 @@
           ],
           "keywords": {"keywords": "PHP, JavaScript, MySQL, Ubuntu Server, Gearman, AWS (EC2)"}
         },
+        /*
         {
           "company": "Various (part-time / internship)",
           "title": "Software Developer, Systems Administrator",
           "dates": "2005 - 2011",
           "details": [
-            /*
             {"detail": "Created reporting tools that revealed $1000s in billing oversights and revealed many bugs (PHP)"},
           	{"detail": "Developed a stress-testing application to support multiple customer-facing APIs"},
           	{"detail": "Developed a store locator that was up to 50 times faster than its unusably-slow predecessor"},
             {"detail": "Migrated 200+ client businesses (2000+ accounts) to a new email provider"},
             {"detail": "Migrated 200+ customer websites from Urchin to Google Analytics"},
             {"detail": "Reduced server count by 75% through service consolidation and OS virtualization"},
-            */
           ],
           "keywords": {"keywords": "Linux, VMware Server, PHP, Python, C#, Django, PostgreSQL"}
         },
+        */
       ]};
       var job_template = jQuery("#job-template").html();
       Mustache.parse(job_template);

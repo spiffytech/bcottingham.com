@@ -37,9 +37,13 @@
     padding-left: 2em;
   }
 
-  .job-role,
-  .job-dates {
+  .job-role {
     font-size: 16px;
+    margin-right: 0.5rem;
+  }
+  .job-dates {
+    font-size: 12px;
+    font-style: italic;
   }
 
   main > section > h2 {
@@ -68,9 +72,6 @@
   }
   .job h3 {
     margin-bottom: 0.25em;
-  }
-  .job-role {
-    font-style: italic;
   }
 
   .job-details {
